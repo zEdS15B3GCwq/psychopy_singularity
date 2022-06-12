@@ -30,7 +30,7 @@ For now, a Docker container is set up to run PP, then converted into a Singulari
 3. setup PP security limits for PsychToolBox group (google PP installation instructions for Ubuntu or just launch PP and read the hint)
 4. `sudo docker build -t pp:latest .` in folder with `Dockerfile`
 5. `sudo singularity build pp.sif pp.def` in folder with `pp.def`
-6. `singularity run --bind /run --bind /etc/security/limits.d
+6. `singularity run --bind /run --bind /etc/security/limits.d` ; `--nv` if needed?
 7. `. /venv/bin/activate`
 8. launch PP (e.g. `psychopy -c`)
 
