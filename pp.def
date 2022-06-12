@@ -1,0 +1,24 @@
+#Bootstrap: docker
+#From: ubuntu:22.04
+Bootstrap: docker-daemon
+From: pp:latest
+
+%post
+
+%runscript
+    export PATH="/python/bin:$PATH"
+    /bin/bash
+
+%help
+    build container:
+        first build docker image with "docker build -t pp:latest ." in folder with Dockerfile
+        rm pp.sif if exists
+        singularity build pp.sif pp.def
+
+    start container:
+        singularity run --bind /run --bind /etc/security/limits.d /pp.sif
+    
+    inside container:
+        . /venv/bin/activate
+        psychopy -c OR whatever
+        python / import psychopy / from psychopy import visual / win=visual.Window() etc.
