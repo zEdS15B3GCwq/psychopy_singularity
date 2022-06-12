@@ -36,7 +36,7 @@ For now, a Docker container is set up to run PP, then converted into a Singulari
 
 ### Feedback is welcome
 
-I need input to be able to make PP fully functional; my knowledge on what PP really requires, how to test functionality etc. is limited.
+I need input to be able to make PP fully functional; my knowledge on what PP really requires, and I can't test if everything works well, alone.
 
 ### Known issues, questions
 
