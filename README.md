@@ -7,7 +7,7 @@ This project aims to create a fully functional PsychoPy (PP) installation in a S
 
 Basic functions seem to be working, but not much testing has been done.
 
-This is a personal project, only tested on my computer, so tweaking may be necessary to get it in a working state elsewhere.
+This is a personal project, only tested on my computer, so tweaking may be necessary to get it in a working state elsewhere. No guarantees of quality given. Documentation is minimal.
 
 ### Technical details in brief
 
