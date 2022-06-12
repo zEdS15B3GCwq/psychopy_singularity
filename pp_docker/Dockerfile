@@ -69,9 +69,9 @@ RUN apt update && \
     rm -rf /var/lib/apt/lists/*
     
 # for network testing
-RUN apt update && \
-    DEBIAN_FRONTEND=noninteractive apt install -y iproute2 iputils-ping bind9-dnsutils && \
-    rm -rf /var/lib/apt/lists/*
+#RUN apt update && \
+#    DEBIAN_FRONTEND=noninteractive apt install -y iproute2 iputils-ping bind9-dnsutils && \
+#    rm -rf /var/lib/apt/lists/*
     
 # just a reminder how to set up sec limits for PTB group, don't uncomment in this form, NOT FOR USE
 #RUN addgroup --gid 1000 $USER && \
