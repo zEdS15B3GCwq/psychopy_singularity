@@ -3,11 +3,9 @@ PsychoPy installation in Singularity container
 
 ### Work in progress
 
-This project aims to create a fully functional PsychoPy (PP) installation in a Singularity container.
+As of now, this is merely a proof of concept that shows that PsychoPy (PP) can run in Singularity container. I hope the project will grow into a fully functional PsychoPy (PP) installation in a Singularity container.
 
-Basic functions seem to be working, but not much testing has been done.
-
-This is a personal project, only tested on my computer, so tweaking may be necessary to get it in a working state elsewhere. No guarantees of quality given. Documentation is minimal.
+Basic functions seem to be working, but I haven't done much testing beyond a few scripts and opening the GUI.
 
 ### Technical details in brief
 
