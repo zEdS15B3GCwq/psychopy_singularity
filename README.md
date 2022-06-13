@@ -21,7 +21,7 @@ For now, a Docker container is set up to run PP, then converted into a Singulari
 * Install PP into *virtualenv*. Extra packages required by `pocketsphinx` and `wxpython` (latter might have wheels available later)
 * Copy *virtualenv* (to `/venv`) and Python (to `/python`) to clean Ubuntu 22.04 image (2nd stage)
 * Install PP requirements (`apt` packages)
-* Fix permissions to allow non-root execution
+* Fix ownership of *virtualenv* to allow non-root execution (for now, assumes user:group IDs 1000:100; won't work if launched with other user)
 
 ### How to use
 
@@ -30,7 +30,7 @@ For now, a Docker container is set up to run PP, then converted into a Singulari
 3. setup PP security limits for PsychToolBox group (google PP installation instructions for Ubuntu or just launch PP and read the hint)
 4. `sudo docker build -t pp:latest .` in folder with `Dockerfile`
 5. `sudo singularity build pp.sif pp.def` in folder with `pp.def`
-6. `singularity run --bind /run --bind /etc/security/limits.d` ; `--nv` if needed?
+6. `singularity run --bind /run --bind /etc/security/limits.d` ; `--nv` if needed? (see **Known issues** on user identity)
 7. `. /venv/bin/activate`
 8. launch PP (e.g. `psychopy -c`)
 
@@ -40,7 +40,7 @@ I need input to be able to make PP fully functional; my knowledge on what PP rea
 
 ### Known issues, questions
 
-* How to set up permissions (e.g. for *virtualenv*) if container user is undefined? Singularity container user has the same IDs as the one who runs the container, which is unpredictable. -> solutions: fakeroot? sudo singularity run --security uid:x --security gid:y?
+* How to set up permissions (e.g. for *virtualenv*) if container user is undefined? Singularity container user has the same IDs as the one who runs the container, which is unpredictable. For now, it is assumed that the user has IDs 1000:1000. -> solutions: fakeroot? sudo singularity run --security uid:x --security gid:y?
 * PP complains about not being able to set the locale to US -> this is probably not a big issue just haven't had time to look into it yet
 * Haven't been able to test sound stimuli from within UI (didn't find appropriate demo script). Sound works from Python code (`from psychopy import sound; s=sound.Sound(); s.play()`)
 - performance? PTB really working?
